@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垚愿教育 | 上海初高中全日制培优 - 积垚成山，愿启未来</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root { --wisdom-blue: #0F172A; --energetic-cyan: #0891B2; }
+        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; scroll-behavior: smooth; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .teacher-card { text-align: center; padding: 2rem; transition: all 0.3s ease; }
+        .avatar-frame { 
+            width: 160px; height: 160px; border-radius: 50%; 
+            margin: 0 auto 1.5rem; overflow: hidden; 
+            border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            transition: transform 0.3s ease;
+        }
+        .teacher-card:hover .avatar-frame { transform: scale(1.05); }
+        .tab-active { background: #0F172A; color: white; box-shadow: 0 10px 20px rgba(15,23,42,0.2); }
+        .sh-tag { background: #ecfeff; color: #0891b2; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .course-img { width: 100%; height: 150px; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem; }
+        .section-bg { background-image: url('https://c.files.bbci.co.uk/1037/production/_89715140_shanghaischool.jpg'); background-size: cover; background-position: center; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-bold text-xl">垚</div>
+                <span class="text-xl font-black italic tracking-tighter">YAOYUAN</span>
+            </a>
+            <div class="hidden lg:flex space-x-10 text-sm font-bold text-slate-500">
+                <a href="#home" class="hover:text-cyan-600 transition">首页</a>
+                <a href="#courses" class="hover:text-cyan-600 transition">课程体系</a>
+                <a href="#teachers" class="hover:text-cyan-600 transition text-slate-900">名师团队</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="hidden md:block text-xs font-bold text-slate-400">微信号: YYET2015</span>
+                <button class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-cyan-700 transition">预约试听</button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-40 pb-20 px-6 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 space-y-8 animate__animated animate__fadeInLeft">
+                <h1 class="text-6xl lg:text-7xl font-black leading-tight text-slate-900">
+                    积<span class="text-cyan-600">垚</span>成山<br>愿启未来
+                </h1>
+                <p class="text-lg text-slate-500 max-w-lg leading-relaxed border-l-4 border-cyan-600 pl-6">
+                    专注上海初高中全日制与全学科培优。汇聚沪上顶级离任名师，打造 <span class="text-slate-900 font-bold">沉浸式全日制教学</span>，助推孩子升学梦想。
+                </p>
+                <div class="flex items-center gap-6">
+                    <button class="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold shadow-xl">咨询全日制课程</button>
+                    <p class="text-xl font-black text-cyan-600">YYET2015</p>
+                </div>
+            </div>
+            <div class="lg:w-1/2 relative animate__animated animate__fadeIn">
+                <!-- 课堂学习场景大图 -->
+                <img src="https://qcloud.dpfile.com/pc/GdZ9Kpd0LUF9UOcYli45_tc3h8dYn5yjrZH2ONL6OTVmjDt2OW_Af5Bp18shWGUp.jpg" class="rounded-[3rem] shadow-2xl" alt="上海高中课堂教学场景">
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-black mb-4 italic uppercase">Shanghai Curriculum</h2>
+                    <p class="text-slate-500 font-medium">定制化升学方案，覆盖全日制托管与单科培优。</p>
+                </div>
+                <div class="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-100">
+                    <button onclick="toggleSet('junior')" id="tab-j" class="px-8 py-3 rounded-xl tab-active font-bold transition">初中部</button>
+                    <button onclick="toggleSet('senior')" id="tab-s" class="px-8 py-3 rounded-xl font-bold text-slate-400 transition">高中部</button>
+                </div>
+            </div>
+
+            <div id="junior-panel" class="grid md:grid-cols-3 gap-6 animate__animated animate__fadeIn">
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border-t-4 border-cyan-600">
+                    <img src="https://img.shipin520.com/video_cover/32/78/88/a_TN8IWSNUjs1B1591327888-1080-v1.jpg?imageView2/1/sharpen/1/w/534/h/300" class="course-img" alt="初中全日制托管插图">
+                    <h3 class="text-xl font-bold mb-4 text-cyan-700">初中全日制托管</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">专为有高强度提分需求的学生设计。全天候名师驻场，涵盖上海中考全学科教研，从早自习到晚答疑，实现“沉浸式”闭环学习。</p>
+                    <div class="flex flex-wrap gap-2"><span class="sh-tag">#全日制管理</span> <span class="sh-tag">#上海中考同步</span></div>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm">
+                    <img src="https://copyright.bdstatic.com/vcg/creative/e0fdc5440a7aefa9d1bfb8aed2e72cdf.jpg" class="course-img" alt="预初/初一衔接插图">
+                    <h3 class="text-xl font-bold mb-4">预初/初一衔接</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">跨越小升初断层。重点培养上海英语 2500 词库、数学几何逻辑与语文古诗文素养。</p>
+                    <div class="flex flex-wrap gap-2"><span class="sh-tag">#能力打底</span> <span class="sh-tag">#名额分配预研</span></div>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm">
+                    <img src="https://img0.baidu.com/it/u=1871770678,2336007451&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500" class="course-img" alt="初二/初三冲刺插图">
+                    <h3 class="text-xl font-bold mb-4">初二/初三冲刺</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">直击中考压轴题、跨学科案例分析及英语听说试。特设上海一模/二模专项提升营。</p>
+                    <div class="flex flex-wrap gap-2"><span class="sh-tag">#决胜中考</span> <span class="sh-tag">#跨学科满分</span></div>
+                </div>
+            </div>
+
+            <div id="senior-panel" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate__animated animate__fadeIn">
+                <div class="bg-slate-900 p-10 rounded-[2.5rem] text-white">
+                    <img src="https://as2.ftcdn.net/jpg/04/97/69/77/1000_F_497697702_gkAYABGzxtI1QnyZMytI2OoYJ4pUVyTj.jpg" class="course-img" alt="高一/高二等级考插图">
+                    <h3 class="text-2xl font-bold mb-4">高一/高二等级考</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">针对上海 3+3 体系，物理/化学/地理/生物等科目等级考精准突破，确保首考冲击 A 档。注重节奏掌控与思维培养，深度剖析上海本地考情，重难点题型专项突破。</p>
+                </div>
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
+                    <img src="https://sjpl.bibliocommons.com/events/uploads/images/full/17cbf1a404c9f1b332bb5ecbed320a7d/esl-writing-class-ba-1280.jpg" class="course-img" alt="高三秋考决胜插图">
+                    <h3 class="text-2xl font-bold mb-4">高三秋考决胜</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">聚焦数学最后两题及综评批次面试指导。针对复交同华等上海名校提供特训。结合一模/二模真题演练，提升应试技巧与心理素质。</p>
+                </div>
+                <div class="bg-cyan-600 p-10 rounded-[2.5rem] text-white shadow-xl">
+                    <img src="https://c8.alamy.com/comp/2X9HK0M/diverse-students-engage-in-a-science-experiment-at-high-school-2X9HK0M.jpg" class="course-img" alt="高中全日制培优托管插图">
+                    <h3 class="text-2xl font-bold mb-4">高中全日制培优托管</h3>
+                    <p class="text-white/90 text-sm leading-relaxed mb-6">
+                        沉浸式全日制闭环教学：全天候名师驻场，从早自习到晚答疑，提供托管式管理。针对上海高中3+3新高考体系，定制个性化升学方案，覆盖等级考首考A档冲刺、秋考/春考高分突破。汇聚顶级离任名师，专注上海本地考情与重难点题型研究，课堂以学生为中心，注重物理/数学/英语等核心学科思维培养与解题技巧提炼。优势包括：小班化教学（15-20人/班）、每日错题复盘、阶段性模考分析、心理辅导与生涯规划。助力学生冲击复旦、上交、同济、华师大等顶尖高校，多名学员单科接近满分或大幅提分。适合追求高效提分与全面托管的上海高中生。
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="sh-tag">#全日制沉浸</span>
+                        <span class="sh-tag">#3+3等级考A档</span>
+                        <span class="sh-tag">#秋考名校冲刺</span>
+                        <span class="sh-tag">#个性化托管</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="teachers" class="py-24 bg-white section-bg">
+        <div class="max-w-7xl mx-auto px-6 bg-white/90 py-12 rounded-3xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black text-slate-900 mb-4 italic uppercase">Elite Faculty</h2>
+                <p class="mt-4 text-slate-400 font-bold">由沪上资深教研员领衔的名师方阵</p>
+                <img src="https://img2.baidu.com/it/u=3972637019,1548662461&fm=253&app=138&f=JPEG?w=1194&h=800" class="w-1/2 mx-auto rounded-xl shadow-lg mb-8" alt="名师团队会议插图">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="WechatIMG267.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">张老师 <span class="text-cyan-600 text-sm">语文</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">汉大硕士 · 10年教龄 · 原新东方文科负责人</p>
+                    <p class="text-xs text-slate-400 px-4">深耕上海本地考情，擅长通过逻辑讨论激发深度思考。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="301511755159261_.pic.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">李老师 <span class="text-cyan-600 text-sm">语文</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">师范名校毕业 · 9年毕业班经验 · 综评特训专家</p>
+                    <p class="text-xs text-slate-400 px-4">道法中考均分 28+。课堂轻松，注重闭环反馈。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="301561755159302_.pic_hd.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">刘老师 <span class="text-cyan-600 text-sm">数学</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">教育学本硕 · 7年毕业班经验 · 逻辑思维重塑专家</p>
+                    <p class="text-xs text-slate-400 px-4">持上海高中教资，擅长开发学生底层解题逻辑。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="301531755159262_.pic.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">李老师 <span class="text-cyan-600 text-sm">数学</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">9年教龄 · 2年组卷经验 · 中考考点精研者</p>
+                    <p class="text-xs text-slate-400 px-4">深谙上海中考卷面得分逻辑，教学风格成熟稳重。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="WechatIMG135.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">卢老师 <span class="text-cyan-600 text-sm">英语</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">8年毕业班教龄 · 海外纯正发音 · 定向提分专家</p>
+                    <p class="text-xs text-slate-400 px-4">深研上海考纲，英语提分效果极佳，学员口碑极高。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="301551755159263_.pic.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">戚老师 <span class="text-cyan-600 text-sm">英语</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">华师大英语系 · 11年民办名校背景 · 专八水平</p>
+                    <p class="text-xs text-slate-400 px-4">独创“三维教学法”，高效抓取上海大纲考试重点。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="301601755160565_.pic_hd.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">李老师 <span class="text-cyan-600 text-sm">物理</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">985厦大毕业 · 13年教龄 · 原教研组长</p>
+                    <p class="text-xs text-slate-400 px-4">上海物理等级考 A+ 提升专家，课堂技法满分。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="301491755159260_.pic.jpg" class="w-full h-full object-cover"></div>
+                    <h3 class="text-2xl font-bold">周老师 <span class="text-cyan-600 text-sm">化学</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">化学硕士 · 精研上海化学命题 · 10年考情精研</p>
+                    <p class="text-xs text-slate-400 px-4">擅长从实验底层逻辑寻找突破口，精准识别知识雷区。</p>
+                </div>
+
+                <!-- 新增的四位老师 -->
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="song.jpg" class="w-full h-full object-cover" alt="宋老师"></div>
+                    <h3 class="text-2xl font-bold">宋老师 <span class="text-cyan-600 text-sm">物理</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">复旦大学原子核物理硕士 · 六年一线带教经验</p>
+                    <p class="text-xs text-slate-400 px-4">全日制带教经验。专注等级考趋势，多名学员中考物理接近满分。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="guo.jpg" class="w-full h-full object-cover" alt="郭老师"></div>
+                    <h3 class="text-2xl font-bold">郭老师 <span class="text-cyan-600 text-sm">英语</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">持语文英语双教资 · 6年教龄 · 深耕上海英语教学</p>
+                    <p class="text-xs text-slate-400 px-4">本土机构原英语组长,擅长构建语言自信，高效应对各类考情。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="zhu.jpg" class="w-full h-full object-cover" alt="朱老师"></div>
+                    <h3 class="text-2xl font-bold">朱老师 <span class="text-cyan-600 text-sm">数学</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">公立学校12年教龄及班主任经验 · 持高中教资</p>
+                    <p class="text-xs text-slate-400 px-4">学校带教超1500人。精研中高考重难点，重塑思维，直击逻辑痛点。</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="avatar-frame"><img src="wan.jpg" class="w-full h-full object-cover" alt="万老师"></div>
+                    <h3 class="text-2xl font-bold">万老师 <span class="text-cyan-600 text-sm">物理</span></h3>
+                    <p class="text-xs font-bold text-slate-700 my-3">东华大学工程专业双学位 · 专业对口、功底扎实</p>
+                    <p class="text-xs text-slate-400 px-4">等级考 A+ 专家。擅长定制方案，击破薄弱环节，点燃理科兴趣。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-center md:text-left">
+                <h3 class="text-3xl font-black italic tracking-tighter">YAOYUAN EDUCATION</h3>
+                <p class="text-slate-500 text-xs mt-2 uppercase tracking-widest">微信号: YYET2015</p>
+            </div>
+            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center gap-4">
+                <div class="text-right">
+                    <p class="text-[10px] text-cyan-500 font-bold mb-1">WeChat</p>
+                    <p class="text-xl font-bold">YYET2015</p>
+                </div>
+                <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center p-1">
+                    <i class="fas fa-qrcode text-3xl text-slate-900"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSet(type) {
+            const jP = document.getElementById('junior-panel');
+            const sP = document.getElementById('senior-panel');
+            const tabJ = document.getElementById('tab-j');
+            const tabS = document.getElementById('tab-s');
+
+            if (type === 'junior') {
+                jP.classList.remove('hidden');
+                sP.classList.add('hidden');
+                tabJ.className = 'px-8 py-3 rounded-xl tab-active font-bold transition';
+                tabS.className = 'px-8 py-3 rounded-xl font-bold text-slate-400 hover:text-slate-600 transition';
+            } else {
+                sP.classList.remove('hidden');
+                jP.classList.add('hidden');
+                tabS.className = 'px-8 py-3 rounded-xl tab-active font-bold transition';
+                tabJ.className = 'px-8 py-3 rounded-xl font-bold text-slate-400 hover:text-slate-600 transition';
+            }
+        }
+    </script>
+</body>
+</html>
